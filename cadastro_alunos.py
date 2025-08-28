@@ -22,8 +22,29 @@ def saudacao():
 
 def cadastrar_aluno():
     nome = input("Digite o nome do aluno: ")
-    idade = int(input("Digite a idade do aluno: "))
-    nota = float(input("Digite a nota do aluno (0 a 10): "))
+    
+    # PROTEÇÃO PARA IDADE - Fica repetindo até digitar um número
+    while True:
+        try:
+            idade = int(input("Digite a idade do aluno: "))
+            if idade > 0:  # Idade deve ser positiva
+                break
+            else:
+                print(" A idade deve ser maior que zero!")
+        except ValueError:
+            print(" Por favor, digite apenas NÚMEROS para a idade!")
+    
+    # PROTEÇÃO PARA NOTA - Fica repetindo até digitar um número válido  
+    while True:
+        try:
+            nota = float(input("Digite a nota do aluno (0 a 10): "))
+            if 0 <= nota <= 10:  # Nota deve estar entre 0 e 10
+                break
+            else:
+                print(" A nota deve estar entre 0 e 10!")
+        except ValueError:
+            print(" Por favor, digite apenas NÚMEROS para a nota!")
+    
     return {"nome": nome, "idade": idade, "nota": nota}
 
 

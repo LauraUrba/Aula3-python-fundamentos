@@ -1,4 +1,2 @@
-Rosa Urba,20,5.0
-Laura Urba ,19,7.0
-Jéssica Urba Rosa,22,7.5
-Rosomirian Veiga ,23,8.0
+Laura ,19,4.0
+Rodrigo,20,5.0

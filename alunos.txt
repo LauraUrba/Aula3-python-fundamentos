@@ -1,2 +1,4 @@
-Laura ,19,4.0
-Rodrigo,20,5.0
+Maria,21,6.0
+Lucas,7,5.4
+Ana,41,7.5
+Carlos,16,8.0

@@ -32,7 +32,7 @@ def cadastrar_aluno():
             else:
                 print(" A idade deve ser maior que zero!")
         except ValueError:
-            print(" Por favor, digite apenas NÚMEROS para a idade!")
+            print(" Por favor, digite apenas números para a idade!")
     
     # PROTEÇÃO PARA NOTA - Fica repetindo até digitar um número válido  
     while True:
@@ -43,7 +43,7 @@ def cadastrar_aluno():
             else:
                 print(" A nota deve estar entre 0 e 10!")
         except ValueError:
-            print(" Por favor, digite apenas NÚMEROS para a nota!")
+            print(" Por favor, digite apenas números para a nota!")
     
     return {"nome": nome, "idade": idade, "nota": nota}
 

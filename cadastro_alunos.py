@@ -7,7 +7,7 @@ class Aluno:
     def situacao(self):
         if self.nota >= 7:
             return "Aprovado"
-        elif self.nota >= 5:
+        elif self.nota >= 5 and self.nota < 7:
             return "Em recuperação"
         else:
             return "Reprovado"

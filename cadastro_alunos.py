@@ -5,12 +5,7 @@ class Aluno:
         self.nota = nota
 
     def situacao(self):
-        if self.nota >= 7:
-            return "Aprovado"
-        elif self.nota >= 5 and self.nota < 7:
-            return "Em recuperação"
-        else:
-            return "Reprovado"
+        return verificar_situacao(self.nota)
 
     def exibir_informacoes(self):
         return f"Nome: {self.nome}, Idade: {self.idade}, Nota: {self.nota}, Situação: {self.situacao()}"
@@ -23,7 +18,6 @@ def saudacao():
 def cadastrar_aluno():
     nome = input("Digite o nome do aluno: ")
     
-    # PROTEÇÃO PARA IDADE - Fica repetindo até digitar um número
     while True:
         try:
             idade = int(input("Digite a idade do aluno: "))
@@ -33,8 +27,7 @@ def cadastrar_aluno():
                 print(" A idade deve ser maior que zero!")
         except ValueError:
             print(" Por favor, digite apenas números para a idade!")
-    
-    # PROTEÇÃO PARA NOTA - Fica repetindo até digitar um número válido  
+     
     while True:
         try:
             nota = float(input("Digite a nota do aluno (0 a 10): "))
@@ -65,20 +58,24 @@ def listar_alunos_abc(lista):
         print(nome)
 
 
+
+def verificar_situacao(nota):
+    if nota >= 7:
+        return "Aprovado"
+    elif nota >= 5 and nota < 7:
+        return "Em recuperação"
+    else:
+        return "Reprovado"
+
+
 def mostrar_situacoes(lista):
     for aluno in lista:
-        nota = aluno["nota"]
-        if nota >= 7:
-            status = "Aprovado"
-        elif nota >= 5:
-            status = "Em recuperação"
-        else:
-            status = "Reprovado"
+        status = verificar_situacao(aluno["nota"])
         print(f"{aluno['nome']}: {status}")
 
 
 def salvar_arquivo(lista):
-    with open("alunos.txt", "w") as f:
+    with open("alunos.txt", "w", encoding="utf-8") as f:
         for aluno in lista:
             f.write(f"{aluno['nome']},{aluno['idade']},{aluno['nota']}\n")
 
@@ -86,7 +83,7 @@ def salvar_arquivo(lista):
 def ler_arquivo():
     lista = []
     try:
-        with open("alunos.txt", "r") as f:
+        with open("alunos.txt", "r", encoding="utf-8") as f:
             for linha in f:
                 nome, idade, nota = linha.strip().split(",")
                 lista.append(
